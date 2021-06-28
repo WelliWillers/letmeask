@@ -1,0 +1,23 @@
+:root {
+    --color-font: #29292a;
+    --color-primary: #f8f8f8;
+    
+    --color-background: #835AFD;
+    --color-font-background: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var( --color-primary);
+    color: var( --color-font);
+}
+
+body, input, button, textarea {
+    font: 400 16px 'Roboto', sans-serif;
+}
+
