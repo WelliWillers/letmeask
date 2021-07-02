@@ -1,17 +1,17 @@
 import { FormEvent, useState } from 'react';
 import { useHistory  } from 'react-router-dom'
-import { database } from '../services/firebase';
-import { useAuth } from '../hooks/useAuth';
+import { database } from '../../services/firebase';
+import { useAuth } from '../../hooks/useAuth';
 
 //imagens
-import illustrationImg from '../assets/images/illustration.svg';
-import logoImg from '../assets/images/logo.svg';
-import googleIconImg from '../assets/images/google-icon.svg';
+import illustrationImg from '../../assets/images/illustration.svg';
+import logoImg from '../../assets/images/logo.svg';
+import googleIconImg from '../../assets/images/google-icon.svg';
 
-import '../styles/auth.scss';
+import '../../global/auth.scss';
 
 //components
-import { Button } from '../components/Button';
+import { Button } from '../../components/Button/index';
 import toast from 'react-hot-toast';
 
 export function Home() {
@@ -31,6 +31,7 @@ export function Home() {
       event.preventDefault();
 
       if(roomCode.trim() === ''){
+        toast.loading('Digite o código da sala!');
         return;
       }
 
@@ -40,9 +41,13 @@ export function Home() {
         toast.error('Esta sala não existe!');
         return;
       }
+      
+      if(roomRef.val().endedAt){
+        toast.error('Esta sala já foi encerrada pelo administrador!');
+        return;
+      }
 
       history.push(`rooms/${roomCode}`);
-
     }
   
     return (
@@ -60,14 +65,14 @@ export function Home() {
               Crie sua sala com o Google
             </button>
             <div className="separator">ou entre em uma sala</div>
-            <form onClick={handleJoinRomm}>
+            <form>
               <input 
                 type="text"
                 placeholder="Digite o código da sala"
                 onChange={event => setRommCode(event.target.value)}
                 value={roomCode}
               />
-              <Button type="submit">
+              <Button onClick={handleJoinRomm} type="submit">
                 Entrar na sala
               </Button>
             </form>

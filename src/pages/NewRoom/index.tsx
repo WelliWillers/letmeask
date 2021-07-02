@@ -2,16 +2,16 @@ import { Link, useHistory } from 'react-router-dom'
 import { FormEvent, useState } from 'react';
 
 // autenticação
-import { useAuth } from '../hooks/useAuth';
-import { database } from '../services/firebase';
+import { useAuth } from '../../hooks/useAuth';
+import { database } from '../../services/firebase';
 
-import illustrationImg from '../assets/images/illustration.svg';
-import logoImg from '../assets/images/logo.svg';
+import illustrationImg from '../../assets/images/illustration.svg';
+import logoImg from '../../assets/images/logo.svg';
 
-import '../styles/auth.scss';
+import '../../global/auth.scss';
 
 //components
-import { Button } from '../components/Button';
+import { Button } from '../../components/Button';
 
 export function NewRoom(){
     const { user } = useAuth();
@@ -31,7 +31,7 @@ export function NewRoom(){
             authorId: user?.id,
         });
  
-        history.push(`rooms/${firebaseRoom.key}`);
+        history.push(`/rooms/${firebaseRoom.key}`);
     }
 
     return (

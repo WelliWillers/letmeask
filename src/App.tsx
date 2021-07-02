@@ -2,9 +2,10 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 
 //páginas
-import { Home } from "./pages/Home";
-import { NewRoom } from "./pages/NewRoom";
-import { Room } from './pages/Room';
+import { Home } from "./pages/Home/index";
+import { NewRoom } from "./pages/NewRoom/index";
+import { Room } from './pages/Room/index';
+import { AdminRoom } from './pages/AdminRoom/index';
 
 //dados do usuário autenticado
 import { AuthContextProvider } from './context/AuthContext';
@@ -15,9 +16,12 @@ function App() {
       <AuthContextProvider>
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/rooms/new" exact component={NewRoom} />
+          <Route path="/rooms/new" component={NewRoom} />
           <Route path="/rooms/:id" component={Room} />
+          <Route path="/admin/rooms/:id" component={AdminRoom} />
         </Switch>
+
+
         <Toaster 
           position="top-right"
           toastOptions={{
