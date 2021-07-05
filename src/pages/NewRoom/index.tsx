@@ -12,6 +12,7 @@ import '../../global/auth.scss';
 
 //components
 import { Button } from '../../components/Button';
+import toast from 'react-hot-toast';
 
 export function NewRoom(){
     const { user } = useAuth();
@@ -22,16 +23,17 @@ export function NewRoom(){
         event.preventDefault();
 
         if(newroom.trim() === ''){
+            toast.loading('Opss! Faltou o nome da sala.');
             return;
         }
-
+        
         const roomRef = database.ref('rooms');
         const firebaseRoom = await roomRef.push({
             title: newroom,
             authorId: user?.id,
         });
  
-        history.push(`/rooms/${firebaseRoom.key}`);
+        history.push(`/admin/rooms/${firebaseRoom.key}`);
     }
 
     return (

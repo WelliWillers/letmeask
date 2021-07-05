@@ -7,6 +7,7 @@ import { database } from '../../services/firebase';
 import { Button } from '../../components/Button';
 import { RoomCode } from '../../components/RoomCode';
 import { Question } from '../../components/Question';
+import { NoQuestions } from '../../components/NoQuestions';
 
 
 import './styles.scss';
@@ -74,50 +75,59 @@ export function AdminRoom(){
 
             <main>
                 <div className="room-title">
-                    <h1>Sala {title}</h1>
+                    <h1>Sala <strong>"{title}"</strong></h1>
                      {questions.length > 0 && <span> {questions.length} pergunta(s) </span>} 
                 </div>
 
-                <div className="question-list">
-                    {questions.map(question => {
-                        return (
-                            <Question 
-                                key={question.id}
-                                content={question.content}
-                                author={question.author}
-                                isAnswered={question.isAnswered}
-                                isHighLighted={question.isHighLighted}
-                            >
-                                {
-                                    !question.isAnswered && (
-                                        <>
-                                            <button
-                                                type="button"
-                                                onClick={() => handleQuestionAsAnswered(question.id)}
-                                            >
-                                                <img src={checkImg} alt="Marcar como respondida esta Pergunta" />
-                                            </button>
+                {
+                    questions.length > 0 
+                    ? 
+                        <div className="question-list">
+                            {questions.map((question, index) => {
+                                return (
+                                    <Question 
+                                        key={question.id}
+                                        content={question.content}
+                                        author={question.author}
+                                        isAnswered={question.isAnswered}
+                                        isHighLighted={question.isHighLighted}
+                                    >
+                                        {
+                                            !question.isAnswered && (
+                                                <>
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => handleQuestionAsAnswered(question.id)}
+                                                    >
+                                                        <img src={checkImg} alt="Marcar como respondida esta Pergunta" />
+                                                    </button>
 
-                                            <button
-                                                type="button"
-                                                onClick={() => handleHighligthQuestion(question.id)}
-                                            >
-                                                <img src={answerImg} alt="Responder Pergunta" />
-                                            </button>
-                                        </>
-                                    )
-                                }
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => handleHighligthQuestion(question.id)}
+                                                    >
+                                                        <img src={answerImg} alt="Responder Pergunta" />
+                                                    </button>
+                                                </>
+                                            )
+                                        }
 
-                                <button
-                                    type="button"
-                                    onClick={() => handleDeleteQuestion(question.id)}
-                                >
-                                    <img src={deleteImg} alt="Deletar Pergunta" />
-                                </button>
-                            </Question>
-                        )
-                    })}
-                </div>
+                                        <button
+                                            type="button"
+                                            onClick={() => handleDeleteQuestion(question.id)}
+                                        >
+                                            <img src={deleteImg} alt="Deletar Pergunta" />
+                                        </button>
+                                    </Question>
+                                )
+                            })}
+                        </div>
+                    : 
+                    <NoQuestions
+                        title="Nenhuma pergunta por aqui..."
+                        subtitle="Envie o código desta sala para seus amigos e comece a responder perguntas!"
+                    />
+                }
             </main>
         </div>
     )
