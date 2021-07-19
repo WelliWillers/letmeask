@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
-import './styles.scss';
+// import './styles.scss';
+import * as Styled from './styles';
 import cx from 'classnames';
 
 type QuestionProps = {
@@ -15,7 +16,7 @@ type QuestionProps = {
 
 export function Question({content, author, children, isAnswered = false , isHighLighted = false}: QuestionProps){
     return(
-        <div 
+        <Styled.Container 
             className={cx(
                 'question', 
                 { answered: isAnswered },
@@ -23,15 +24,15 @@ export function Question({content, author, children, isAnswered = false , isHigh
             )}
         >
             <p>{content}</p>
-            <footer>
-                <div className="user-info">
+            <Styled.Footer>
+                <Styled.user>
                     <img src={author.avatar} alt={author.name} />
                     <span>{author.name}</span>
-                </div>
-                <div className="options">
+                </Styled.user>
+                <Styled.Obtions>
                     {children}
-                </div>
-            </footer>
-        </div>
+                </Styled.Obtions>
+            </Styled.Footer>
+        </Styled.Container>
     )
 }
