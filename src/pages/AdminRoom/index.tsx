@@ -1,4 +1,3 @@
-import { FormEvent } from 'react';
 import { useRoom } from '../../hooks/useRomm';
 import {useHistory, useParams} from 'react-router-dom';
 import { database } from '../../services/firebase';
@@ -9,8 +8,9 @@ import { RoomCode } from '../../components/RoomCode';
 import { Question } from '../../components/Question';
 import { NoQuestions } from '../../components/NoQuestions';
 
+//styles
+import * as Styled from './styles';
 
-import './styles.scss';
 import logoImg from '../../assets/images/logo.svg';
 import deleteImg from '../../assets/images/delete.svg';
 import checkImg from '../../assets/images/check.svg';
@@ -59,31 +59,31 @@ export function AdminRoom(){
 
  
     return (
-        <div id="page-room">
-            <header>
-                <div className="content">
+        <Styled.Container>
+            <Styled.Header>
+                <Styled.Content>
                     <img src={logoImg} alt="Letmeask" />
 
                     <div>
                         <RoomCode code={roomId} />
-                        <Button isOutline onClick={handleEndRoom}>
+                        <Button btnType="outline" onClick={handleEndRoom}>
                             Encerrar Sala
                         </Button>
                     </div>
-                </div>
-            </header>
+                </Styled.Content>
+            </Styled.Header>
 
-            <main>
-                <div className="room-title">
+            <Styled.Main>
+                <Styled.Title>
                     <h1>Sala <strong>"{title}"</strong></h1>
                      {questions.length > 0 && <span> {questions.length} pergunta(s) </span>} 
-                </div>
+                </Styled.Title>
 
                 {
                     questions.length > 0 
                     ? 
-                        <div className="question-list">
-                            {questions.map((question, index) => {
+                        <Styled.Question>
+                            {questions.slice(0).reverse().map((question, index) => {
                                 return (
                                     <Question 
                                         key={question.id}
@@ -121,14 +121,14 @@ export function AdminRoom(){
                                     </Question>
                                 )
                             })}
-                        </div>
+                        </Styled.Question>
                     : 
                     <NoQuestions
                         title="Nenhuma pergunta por aqui..."
                         subtitle="Envie o código desta sala para seus amigos e comece a responder perguntas!"
                     />
                 }
-            </main>
-        </div>
+            </Styled.Main>
+        </Styled.Container>
     )
 }

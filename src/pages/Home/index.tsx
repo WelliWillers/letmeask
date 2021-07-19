@@ -8,7 +8,8 @@ import illustrationImg from '../../assets/images/illustration.svg';
 import logoImg from '../../assets/images/logo.svg';
 import googleIconImg from '../../assets/images/google-icon.svg';
 
-import '../../global/auth.scss';
+// import '../../global/auth.scss'; 
+import * as Styled from '../../global/authPages';
 
 //components
 import { Button } from '../../components/Button/index';
@@ -51,20 +52,25 @@ export function Home() {
     }
   
     return (
-      <div id="page-auth">
-        <aside>
+      <Styled.Container>
+        <Styled.Aside as="aside">
           <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
           <strong>Crie salas de Q&amp;A ao-vivo</strong>
           <p>Tire as dúvidas da sua audiência em tempo-real</p>
-        </aside>
-        <main>
-          <div className="main-content">
+        </Styled.Aside>
+
+        <Styled.Main as="main">
+          <Styled.Content>
             <img src={logoImg} alt="Letmeask" />
-            <button onClick={handleCreateRoom} className="create-room">
+            {/* <button onClick={handleCreateRoom} className="create-room">
               <img src={googleIconImg} alt="Logo do Google" />
               Crie sua sala com o Google
-            </button>
-            <div className="separator">ou entre em uma sala</div>
+            </button> */}
+            <Button btnG={true} btnType="fill" onClick={handleCreateRoom}>
+              <img src={googleIconImg} alt="Logo do Google" />
+              Crie sua sala com o Google
+            </Button>
+            <Styled.Separator>ou entre em uma sala</Styled.Separator>
             <form>
               <input 
                 type="text"
@@ -72,12 +78,12 @@ export function Home() {
                 onChange={event => setRommCode(event.target.value)}
                 value={roomCode}
               />
-              <Button onClick={handleJoinRomm} type="submit">
+              <Button btnType="fill" onClick={handleJoinRomm} type="submit">
                 Entrar na sala
               </Button>
             </form>
-          </div>
-        </main>
-      </div>
+          </Styled.Content>
+        </Styled.Main>
+      </Styled.Container>
     )
   }

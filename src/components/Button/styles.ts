@@ -1,4 +1,11 @@
-.button {
+import styled from "styled-components";
+
+type ButtonProps={
+    btnType:'fill' | 'outline',
+    btnG:boolean,
+}
+  
+export const Button = styled.button<ButtonProps>`
     height: 40px;
     border-radius: 8px;
     font-weight: 500;
@@ -33,4 +40,4 @@
       opacity: 0.6;
       cursor: not-allowed;
     }
-  }
+`;

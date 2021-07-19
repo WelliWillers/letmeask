@@ -1,7 +1,7 @@
 import toast from 'react-hot-toast';
 import copyImg from '../../assets/images/copy.svg';
 
-import './styles.scss';
+import * as Styled from './styles';
 
 type RoomCode = {
     code: string;
@@ -15,11 +15,11 @@ export function RoomCode(props: RoomCode){
     }
 
     return (
-        <button className="room-code" onClick={copyRoomCode}>
+        <Styled.Button className="room-code" onClick={copyRoomCode}>
             <div>
                 <img src={copyImg} alt="Copiar código" />
             </div>
             <span>Sala #{props.code}</span>
-        </button>
+        </Styled.Button>
     );
 }

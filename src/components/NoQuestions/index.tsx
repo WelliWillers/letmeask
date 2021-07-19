@@ -1,7 +1,7 @@
 
 import emptyImg from '../../assets/images/empty-questions.svg'; 
 
-import './styles.scss';
+import * as Styled from './styles';
 
 type NoQuestionProps = {
     title?: string;
@@ -10,10 +10,10 @@ type NoQuestionProps = {
 
 export function NoQuestions({title, subtitle}: NoQuestionProps){
     return (
-        <div className="container-error">
+        <Styled.NoQuestions>
             <img src={emptyImg} alt="Imagem mostrando sem nenhuma pergunta ainda." />
             <h2>{title}</h2>
             <p>{subtitle}</p>
-        </div>
+        </Styled.NoQuestions>
     );
 }

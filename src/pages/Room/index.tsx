@@ -2,7 +2,7 @@ import { FormEvent, useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { useRoom } from '../../hooks/useRomm';
 import { database } from '../../services/firebase';
-import {useParams} from 'react-router-dom';
+import {useHistory, useParams} from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 //componentes 
@@ -12,7 +12,8 @@ import { Question } from '../../components/Question';
 import { NoQuestions } from '../../components/NoQuestions';
 
 
-import './styles.scss';
+import * as Styled from './styles';
+
 import logoImg from '../../assets/images/logo.svg';
 
 type RoomParams = {
@@ -22,11 +23,12 @@ type RoomParams = {
 
 export function Room(){
 
+    const history = useHistory();
     const { user, signInWithGoogle } = useAuth();
     const [newQuestion, setNewQuestion] = useState('');
     const params = useParams<RoomParams>();
     const roomId = params.id;
-    const {questions, title} = useRoom(roomId);
+    const {questions, title, adminId} = useRoom(roomId);
 
     async function handleSendQuestion(event: FormEvent){
         event.preventDefault();
@@ -37,6 +39,8 @@ export function Room(){
         }
         if(!user){
             toast.error('Você deve estar logado!');
+            signInWithGoogle();
+            return;
         }
 
         const question = {
@@ -54,6 +58,10 @@ export function Room(){
         setNewQuestion('');
     }
 
+    function handleGoToPanel(){
+        history.push(`/admin/rooms/${roomId}`);
+    }
+
     async function handleLikeQuestion(questionId: string, likeId: string | undefined){
         if(likeId){
             await database.ref(`/rooms/${roomId}/questions/${questionId}/likes/${likeId}`).remove();
@@ -66,24 +74,29 @@ export function Room(){
     }
 
     return (
-        <div id="page-room">
-            <header>
-                <div className="content">
+        <Styled.Container>
+            <Styled.Header>
+                <Styled.Content>
                     <img src={logoImg} alt="Letmeask" />
                     <div>
                         <RoomCode code={roomId} />
-                        {/* {
-                            user?.id ===  ? ' ' : ''
-                        } */}
+                        {
+                            user?.id ===  adminId ? 
+                                <Button btnType="outline" onClick={handleGoToPanel}>
+                                    Painel
+                                </Button>
+                            : 
+                           ''
+                        }
                     </div>
-                </div>
-            </header>
+                </Styled.Content>
+            </Styled.Header>
 
-            <main>
-                <div className="room-title">
+            <Styled.Main>
+                <Styled.Title>
                     <h1>Sala <strong>"{title}"</strong></h1>
                      {questions.length > 0 && <span> {questions.length} pergunta(s) </span>} 
-                </div>
+                </Styled.Title>
 
                 <form onSubmit={handleSendQuestion}>
                     <textarea
@@ -92,23 +105,23 @@ export function Room(){
                         value={newQuestion}
                     />
 
-                    <div className="form-footer">
+                    <Styled.Footer>
                         { user ? (
-                        <div className="user-info">
+                        <Styled.User>
                             <img src={user.avatar} alt={user.name} />
                             <span>{user.name}</span>
-                        </div>
+                        </Styled.User>
                         ) : (
                         <span>Para enviar uma pergunta, <button onClick={signInWithGoogle}>faça seu login</button>.</span>
                         ) }
-                        <Button type="submit">Enviar pergunta</Button>
-                    </div>
+                        <Button btnType="fill" type="submit">Enviar pergunta</Button>
+                    </Styled.Footer>
                 </form>
                 
                 {
                     questions.length > 0 ?
-                    <div className="question-list">
-                        {questions.map(question => {
+                    <Styled.Question>
+                        {questions.slice(0).reverse().map(question => {
                             return (
                                 <Question 
                                     key={question.id}
@@ -137,14 +150,14 @@ export function Room(){
                                 </Question>
                             )
                         })}
-                    </div> 
+                    </Styled.Question> 
                     :
                     <NoQuestions 
                         title="Nenhuma pergunta por aqui..."
                         subtitle={`${user?.id ? user.name : 'Faça o seu login e'} seja a primeira pessoa a fazer uma pergunta!`}
                     />
                 }
-            </main>
-        </div>
+            </Styled.Main>
+        </Styled.Container>
     )
 }

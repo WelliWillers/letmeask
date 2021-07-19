@@ -8,7 +8,7 @@ import { database } from '../../services/firebase';
 import illustrationImg from '../../assets/images/illustration.svg';
 import logoImg from '../../assets/images/logo.svg';
 
-import '../../global/auth.scss';
+import * as Styled from '../../global/authPages';
 
 //components
 import { Button } from '../../components/Button';
@@ -37,15 +37,15 @@ export function NewRoom(){
     }
 
     return (
-        <div id="page-auth">
-            <aside>
+        <Styled.Container>
+            <Styled.Aside>
                 <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />
                 <strong>Crie salas de Q&amp;A ao-vivo</strong>
                 <p>Tire as dúvidas da sua audiência em tempo-real</p>
-            </aside>
+            </Styled.Aside>
 
-            <main>
-                <div className="main-content">
+            <Styled.Main>
+                <Styled.Content>
                     <img src={logoImg} alt="Letmeask" />
                     <h2>Criar uma nova sala</h2>
                     <form onSubmit={handleCreateRoom}>
@@ -55,13 +55,13 @@ export function NewRoom(){
                             onChange={event => setNewromm(event.target.value)}
                             value={newroom}
                         />
-                        <Button type="submit">
+                        <Button btnType="fill" type="submit">
                             Entrar na sala
                         </Button>
                     </form>
                     <p>Quer entrar em uma sala já existente? <Link to="/">Clique aqui</Link></p>
-                </div>
-            </main>
-        </div>
+                </Styled.Content>
+            </Styled.Main>
+        </Styled.Container>
     );
 }

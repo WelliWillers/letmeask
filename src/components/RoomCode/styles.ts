@@ -1,4 +1,6 @@
-.room-code {
+import styled from "styled-components";
+
+export const Button = styled.div`
     height: 40px;
     border-radius: 8px;
     overflow: hidden;
@@ -21,10 +23,12 @@
     span {
       display: block;
       align-self: center;
+      justify-content: center;
+      text-align: center;
       flex: 1;
       padding: 0 16px 0 12px;
-      width: 300px;
+      width: 280px;
       font-size: 14px;
       font-weight: 500;
     }
-  }
+`;

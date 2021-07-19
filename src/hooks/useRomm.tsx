@@ -33,9 +33,16 @@ export function useRoom(roomId: string) {
     const { user } = useAuth();
     const [questions, setQuestions] = useState<QuestionType[]>([])
     const [title, setTitle] = useState('');
-
+    const [ adminId, setAdminId] = useState('');
+    
+    
     useEffect(() => {
         const roomRef = database.ref(`rooms/${roomId}`);
+        const idAdmin = database.ref(`rooms/${roomId}/authorId`);
+        
+        idAdmin.on('value', (authorId) => {
+            setAdminId(authorId.val());
+        })
 
         roomRef.on('value', room => {
             const databaseRoom = room.val();
@@ -58,9 +65,11 @@ export function useRoom(roomId: string) {
         })
 
         return () => {
-        roomRef.off('value');
+            roomRef.off('value');
         }
     }, [roomId, user?.id]);
 
-    return { questions, title }
+    console.log(adminId);
+
+    return { questions, title, adminId }
 }
