@@ -13,6 +13,8 @@ import * as Styled from '../../global/authPages';
 
 //components
 import { Button } from '../../components/Button/index';
+import { ToggleTheme } from '../../components/ToggleTheme';
+
 import toast from 'react-hot-toast';
 
 export function Home() {
@@ -61,11 +63,8 @@ export function Home() {
 
         <Styled.Main as="main">
           <Styled.Content>
+            <ToggleTheme />
             <img src={logoImg} alt="Letmeask" />
-            {/* <button onClick={handleCreateRoom} className="create-room">
-              <img src={googleIconImg} alt="Logo do Google" />
-              Crie sua sala com o Google
-            </button> */}
             <Button btnG={true} btnType="fill" onClick={handleCreateRoom}>
               <img src={googleIconImg} alt="Logo do Google" />
               Crie sua sala com o Google

@@ -8,11 +8,11 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background-color: #f8f8f8;
-        color: #29292a;
+        background-color: ${props => props.theme.colors.white.medium};
+        color: ${props => props.theme.colors.textColor.primary};
     }
 
     body, input, button, textarea {
-        font: 400 16px 'Roboto', sans-serif;
+        font: 400 ${props => props.theme.font.sizes.sm} ${props => props.theme.font.secondary};
     }
 `;

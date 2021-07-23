@@ -3,7 +3,7 @@ import 'styled-components';
 // and extend them!
 declare module 'styled-components' {
   export interface DefaultTheme {
-    isLight:boolean,
+    title: string;
     colors: {
       bg: {
         body: string,

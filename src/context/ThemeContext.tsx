@@ -4,7 +4,9 @@ import { ThemeProvider } from 'styled-components';
 //styles
 import { GlobalStyle } from '../global/themeGlobal';
 import DefaultTheme from '../global/styled';
-import {light, dark} from '../global/theme';
+
+import light from '../global/themes/light';
+import dark from '../global/themes/dark';
 
 type ThemeContextType = {
     isLight:boolean,
@@ -20,13 +22,14 @@ export const ThemeContext = createContext({} as ThemeContextType);
 
 export function ThemeContextProvider({children}: themeContextProviderProps){
     const [theme, setTheme] = useState(light);
-    const isLight = theme.isLight;
+    const isLight = theme.title == 'light' ? true : false;
 
     useEffect(() => {
         const localTheme = window.localStorage.getItem("@letmeask/nlwtheme");
     
         localTheme && setTheme(JSON.parse(localTheme));
     }, []);
+    
     
     const toggleTheme = () => {
         if (isLight) {

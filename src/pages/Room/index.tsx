@@ -1,9 +1,14 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useState, useContext } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { useRoom } from '../../hooks/useRomm';
 import { database } from '../../services/firebase';
 import {useHistory, useParams} from 'react-router-dom';
 import toast from 'react-hot-toast';
+
+//compõe a estilização do site
+import Switch  from 'react-switch';
+import { ThemeContext } from 'styled-components';
+import {shade} from 'polished';
 
 //componentes 
 import { Button } from '../../components/Button';
@@ -30,6 +35,9 @@ export function Room(){
     const roomId = params.id;
     const {questions, title, adminId} = useRoom(roomId);
 
+    //pega cores do themes
+    const { colors } = useContext(ThemeContext);
+
     async function handleSendQuestion(event: FormEvent){
         event.preventDefault();
 
@@ -37,6 +45,7 @@ export function Room(){
             toast.error('Nenhuma pergunta foi feita!');
             return;
         }
+        
         if(!user){
             toast.error('Você deve estar logado!');
             signInWithGoogle();
@@ -52,9 +61,7 @@ export function Room(){
             isHighLighted: false,
             isAnswered: false,
         };
-
         await database.ref(`rooms/${roomId}/questions`).push(question);
-
         setNewQuestion('');
     }
 
@@ -70,14 +77,26 @@ export function Room(){
                 authorId: user?.id
             });
         }
-        
     }
 
     return (
         <Styled.Container>
             <Styled.Header>
                 <Styled.Content>
-                    <img src={logoImg} alt="Letmeask" />
+                    <div>
+                        <img src={logoImg} alt="Letmeask" />
+                        <Switch 
+                            onChange={() => {}}
+                            checked={true}
+                            checkedIcon={false}
+                            uncheckedIcon={false}
+                            height={10}
+                            width={40}
+                            handleDiameter={20}
+                            offColor={shade(0.1, colors.black )}
+                            onColor={colors.google}
+                        />
+                    </div>
                     <div>
                         <RoomCode code={roomId} />
                         {

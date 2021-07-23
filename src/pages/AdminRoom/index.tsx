@@ -7,6 +7,7 @@ import { Button } from '../../components/Button';
 import { RoomCode } from '../../components/RoomCode';
 import { Question } from '../../components/Question';
 import { NoQuestions } from '../../components/NoQuestions';
+import { ToggleTheme } from '../../components/ToggleTheme';
 
 //styles
 import * as Styled from './styles';
@@ -69,6 +70,7 @@ export function AdminRoom(){
                         <Button btnType="outline" onClick={handleEndRoom}>
                             Encerrar Sala
                         </Button>
+                        <ToggleTheme />
                     </div>
                 </Styled.Content>
             </Styled.Header>

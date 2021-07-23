@@ -1,7 +1,5 @@
 import { BrowserRouter } from 'react-router-dom';
-
 import { Routes } from './routes';
-
 
 //dados do usuário autenticado
 import { AuthContextProvider } from './context/AuthContext';

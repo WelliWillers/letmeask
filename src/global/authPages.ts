@@ -8,8 +8,8 @@ export const Container = styled.div`
 
 export const Aside = styled.div`
     flex: 7;
-    background-color:${({ theme }) => theme.isLight ? theme.colors.purple.light : theme.colors.purple.dark};
-    color: ${({ theme }) => theme.colors.white.medium};
+    background-color:#835AFD;
+    color: #F8F8F8;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,22 +20,22 @@ export const Aside = styled.div`
     }
 
     & > strong {
-        font: 700 ${({ theme }) => theme.font.sizes.xl} ${({ theme }) => theme.font.primary};
+        font: 700 36px 'Poppins', sans-serif;;
         line-height: 42px;
         margin-top: 16px;
     }
 
     & > p {
-        font-size: ${({ theme }) => theme.font.sizes.lg};
-        line-height: ${({ theme }) => theme.spacings.lg};
-        margin-top: ${({ theme }) => theme.spacings.md};
-        color: ${({ theme }) => theme.colors.white.light};
+        font-size: 36px;
+        line-height: 24px;
+        margin-top: 16px;
+        color: #FEFEFE;
     }
 `;
 
 export const Main = styled.div`
     flex:8;
-    padding:0 ${({ theme }) => theme.spacings.xl};
+    padding:0 36px;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -51,9 +51,9 @@ export const Content = styled.div`
     max-width:320px;
 
     > h2 {
-      font-size: ${({ theme }) => theme.font.sizes.md};
+      font-size: 24px;
       margin: 64px 0 24px;
-      font-family: ${({ theme }) => theme.font.primary};
+      font-family: 'Poppins', sans-serif;;
     }
 
     > button {
@@ -100,21 +100,21 @@ export const Content = styled.div`
     }
     
     > p {
-      margin-top: ${({ theme }) => theme.spacings.lg};
-      font-size:${({ theme }) => theme.font.sizes.sm};
+      margin-top: 24px;
+      font-size:14px;
     }
 
     > strong.mobile{
         display:none;
-        color:${({ theme }) => theme.colors.textColor.details};
+        color: #737380;
     }
     
 `;
 
 export const Separator = styled.div`
-  font-size:${({ theme }) => theme.font.sizes.sm};
-  color:${({ theme }) => theme.colors.gray.medium};
-  margin:${({ theme }) => theme.spacings.xl} 0;
+  font-size:14px;
+  color:#A8A8B3;
+  margin:36px 0;
   display:flex;
   align-items:center;
 
@@ -122,16 +122,16 @@ export const Separator = styled.div`
     content:"";
     flex:1;
     height:1px;
-    background:${({ theme }) => theme.colors.gray.medium};
-    margin-right:${({ theme }) => theme.spacings.md};
+    background:#A8A8B3;
+    margin-right:16px;
   }
 
   ::after {
     content:"";
     flex:1;
     height:1px;
-    background:${({ theme }) => theme.colors.gray.medium};
-    margin-left:${({ theme }) => theme.spacings.md};
+    background:#A8A8B3;
+    margin-left:16px;
   }
 `;
 
@@ -139,7 +139,7 @@ export const User = styled.div`
   display:flex;
   align-items:center;
   gap:1.5rem;
-  margin:${({ theme }) => theme.spacings.xxl} 0 ${({ theme }) => theme.spacings.lg};
+  margin:64px 0 24px;
 
   > img {
     width:5rem;
@@ -152,8 +152,8 @@ export const User = styled.div`
     margin-top:0;
     margin-bottom:0;
     text-align:left;
-    font-size:${({ theme }) => theme.font.sizes.lg};
-    font-family:${({ theme }) => theme.font.primary};
-    color:${({ theme }) => theme.isLight ? theme.colors.black : theme.colors.white.medium};
+    font-size: 36px;
+    font-family: 'Poppins', sans-serif;;
+    color:#F8F8F8;
   }
 `;
