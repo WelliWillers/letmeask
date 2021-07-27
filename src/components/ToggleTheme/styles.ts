@@ -6,7 +6,9 @@ export const Button =styled.button`
   justify-content:center;
   background:transparent;
   margin:0;
+  font-size: 30px;
   border:none;
+  cursor: pointer;
   color:${({ theme }) => theme.title == 'light' ? theme.colors.purple.light : theme.colors.white.light};
 `;
 

@@ -21,7 +21,32 @@ export const Content = styled.div`
     > div {
         display: flex;
         align-items: center;
-        gap: 10px; 
+        gap: 10px;
+
+        div {
+            display: flex;
+            gap: 16px;
+        }
+    }
+    
+    @media (max-width: 992px){
+        > img {
+            max-height: 75px;
+        }
+        > div {
+            flex-direction: column;
+            align-items: flex-end;
+
+            button {
+                height: 40px;
+            }
+
+            > div {
+                display: flex !important;
+                gap: 16px;
+                justify-content: space-between;
+            }
+        }
     }
 `;
 export const Main = styled.div`
@@ -39,6 +64,11 @@ export const Main = styled.div`
             resize: vertical;
             min-height: 130px;
         }
+    }
+
+    @media(max-width: 992px) {
+      margin: auto;
+      padding: 0 20px;
     }
 `;
 export const Title = styled.div`

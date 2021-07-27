@@ -66,11 +66,13 @@ export function AdminRoom(){
                     <img src={logoImg} alt="Letmeask" />
 
                     <div>
-                        <RoomCode code={roomId} />
-                        <Button btnType="outline" onClick={handleEndRoom}>
-                            Encerrar Sala
-                        </Button>
-                        <ToggleTheme />
+                        <RoomCode code={'Copiar código'} />
+                        <div>
+                            <Button btnType="outline" onClick={handleEndRoom}>
+                                Encerrar Sala
+                            </Button>
+                            <ToggleTheme />
+                        </div>
                     </div>
                 </Styled.Content>
             </Styled.Header>

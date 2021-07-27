@@ -6,16 +6,14 @@ import {useHistory, useParams} from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 //compõe a estilização do site
-import Switch  from 'react-switch';
 import { ThemeContext } from 'styled-components';
-import {shade} from 'polished';
 
 //componentes 
 import { Button } from '../../components/Button';
 import { RoomCode } from '../../components/RoomCode';
 import { Question } from '../../components/Question';
 import { NoQuestions } from '../../components/NoQuestions';
-
+import { ToggleTheme } from '../../components/ToggleTheme';
 
 import * as Styled from './styles';
 
@@ -24,7 +22,6 @@ import logoImg from '../../assets/images/logo.svg';
 type RoomParams = {
     id: string;
 }
-
 
 export function Room(){
 
@@ -85,28 +82,20 @@ export function Room(){
                 <Styled.Content>
                     <div>
                         <img src={logoImg} alt="Letmeask" />
-                        <Switch 
-                            onChange={() => {}}
-                            checked={true}
-                            checkedIcon={false}
-                            uncheckedIcon={false}
-                            height={10}
-                            width={40}
-                            handleDiameter={20}
-                            offColor={shade(0.1, colors.black )}
-                            onColor={colors.google}
-                        />
                     </div>
                     <div>
                         <RoomCode code={roomId} />
-                        {
-                            user?.id ===  adminId ? 
-                                <Button btnType="outline" onClick={handleGoToPanel}>
-                                    Painel
-                                </Button>
-                            : 
-                           ''
-                        }
+                        <div>
+                            {
+                                user?.id ===  adminId ? 
+                                    <Button btnType="outline" onClick={handleGoToPanel}>
+                                        Painel
+                                    </Button>
+                                : 
+                            ''
+                            }
+                            <ToggleTheme />
+                        </div>
                     </div>
                 </Styled.Content>
             </Styled.Header>

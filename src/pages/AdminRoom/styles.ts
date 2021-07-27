@@ -11,7 +11,7 @@ export const Header = styled.div`
 
 export const Content = styled.div`
     max-width: 1120px;
-    margin: 0 auto;
+    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -27,12 +27,40 @@ export const Content = styled.div`
         button {
             height: 40px;
         }
+
+        > div {
+            display: flex;
+            gap: 16px;
+        }
+    }
+
+    @media (max-width: 992px){
+        > img {
+            max-height: 75px;
+        }
+        > div {
+            flex-direction: column;
+            align-items: flex-end;
+
+            button {
+                height: 40px;
+            }
+
+            > div {
+                display: flex;
+                gap: 16px;
+            }
+        }
     }
 `;
 
 export const Main = styled.div`
     max-width: 800px;
     margin: 0 auto;
+    @media(max-width: 992px) {
+      margin: auto;
+      padding: 0 20px;
+    }
 `;
 
 export const Title = styled.div`

@@ -63,7 +63,9 @@ export function Home() {
 
         <Styled.Main as="main">
           <Styled.Content>
-            <ToggleTheme />
+            <span>
+              <ToggleTheme />
+            </span>
             <img src={logoImg} alt="Letmeask" />
             <Button btnG={true} btnType="fill" onClick={handleCreateRoom}>
               <img src={googleIconImg} alt="Logo do Google" />

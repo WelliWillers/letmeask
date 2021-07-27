@@ -31,4 +31,10 @@ export const Button = styled.div`
       font-size: 14px;
       font-weight: 500;
     }
+
+    @media(max-width: 992px) {
+      span {
+        width: 144px;
+      }
+    }
 `;

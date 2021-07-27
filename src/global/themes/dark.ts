@@ -2,12 +2,12 @@ export default {
     title: 'dark',
     colors: {
         bg: {
-            body: "#030303",
+            body: "#101010",
             modal: "#F8F8F8",
-            input:"#fff",
+            input:"#353535",
         },
         textColor: {
-            primary: "#29292E",
+            primary: "#ffffff",
             details: "#737380",
             input:"#835AFD",
         },

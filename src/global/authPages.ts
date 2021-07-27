@@ -4,12 +4,17 @@ export const Container = styled.div`
     display: flex;
     align-items: stretch;
     height: 100vh;
+
+    @media (max-width: 992px){
+      flex-direction: column;
+      height: auto;
+    }
 `;
 
 export const Aside = styled.div`
     flex: 7;
-    background-color:#835AFD;
-    color: #F8F8F8;
+    background-color: ${props => props.theme.colors.bg.input};
+    color: ${props => props.theme.colors.textColor.primary};
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,16 +25,34 @@ export const Aside = styled.div`
     }
 
     & > strong {
-        font: 700 36px 'Poppins', sans-serif;;
-        line-height: 42px;
-        margin-top: 16px;
+        font: 700 ${props => props.theme.font.sizes.lg} ${props => props.theme.font.primary};
+        line-height: ${props => props.theme.spacings.xl};
+        margin-top: ${props => props.theme.spacings.md};
     }
 
     & > p {
-        font-size: 36px;
-        line-height: 24px;
-        margin-top: 16px;
-        color: #FEFEFE;
+        font-size: ${props => props.theme.spacings.xl};
+        line-height: ${props => props.theme.spacings.xl};
+        margin-top: ${props => props.theme.spacings.md};
+        color: ${props => props.theme.colors.textColor.details};
+    }
+
+    @media (max-width: 992px){
+      text-align: center;
+      align-items: center;
+      padding: 50px 80px;
+
+      & > img {
+        max-width: 120px;
+      }
+
+      & > strong {
+        font: 700 ${props => props.theme.font.sizes.md} ${props => props.theme.font.primary};
+      }
+
+      & > p {
+        font-size: ${props => props.theme.spacings.lg};
+      }
     }
 `;
 
@@ -39,76 +62,98 @@ export const Main = styled.div`
     display:flex;
     align-items:center;
     justify-content:center;
+
+    @media (max-width: 992px){
+      padding: 50px 36px;
+    }
 `;
 
 export const Content = styled.div`
-    display:flex;
-    flex-direction:column;
-    align-items:stretch;
-    justify-content:center;
-    text-align:center;
-    width:100%;
-    max-width:320px;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  justify-content:center;
+  text-align:center;
+  width:100%;
+  max-width:320px;
+  
+  > span {
+    margin-left: auto;
+    padding-bottom: 30px;
+  }
 
-    > h2 {
-      font-size: 24px;
-      margin: 64px 0 24px;
-      font-family: 'Poppins', sans-serif;;
+  > h2 {
+    font-size: 24px;
+    margin: 64px 0 24px;
+    font-family: 'Poppins', sans-serif;;
+  }
+
+  > button {
+    margin-top: 64px;
+    height: 50px;
+    border-radius: 8px;
+    font-weight: 500;
+    background: #ea4335;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 0;
+    transition: filter 0.2s;
+
+    > img {
+      margin-right: 8px;
     }
 
-    > button {
-      margin-top: 64px;
+    > &:hover {
+      filter: brightness(0.9);
+    }
+    
+  }
+
+  > form {
+    > input {
       height: 50px;
       border-radius: 8px;
-      font-weight: 500;
-      background: #ea4335;
-      color: #FFF;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      border: 0;
-      transition: filter 0.2s;
+      padding: 0 16px;
+      background: #FFF;
+      border: 1px solid #a8a8b3;
+    }
+
+    > button { 
+      margin-top: 16px;
+    }
+
+    > button, input {
+      width: 100%;
+    }
+
+  }
   
-      > img {
-        margin-right: 8px;
-      }
+  > p {
+    margin-top: 24px;
+    font-size:14px;
+  }
+
+  > strong.mobile{
+      display:none;
+      color: #737380;
+  }
+
+  @media (max-width: 992px){
+
+    > img {
+      max-width: 60%;
+      text-align: center;
+      margin: auto;
+    }
+
+    > &:hover {
+      filter: brightness(0.9);
+    }
+  }
   
-      > &:hover {
-        filter: brightness(0.9);
-      }
-      
-    }
-
-    > form {
-      > input {
-        height: 50px;
-        border-radius: 8px;
-        padding: 0 16px;
-        background: #FFF;
-        border: 1px solid #a8a8b3;
-      }
-
-      > button { 
-        margin-top: 16px;
-      }
-
-      > button, input {
-        width: 100%;
-      }
-
-    }
-    
-    > p {
-      margin-top: 24px;
-      font-size:14px;
-    }
-
-    > strong.mobile{
-        display:none;
-        color: #737380;
-    }
-    
 `;
 
 export const Separator = styled.div`

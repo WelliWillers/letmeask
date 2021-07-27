@@ -4,11 +4,11 @@ export default {
         bg: {
             body: "#F8F8F8",
             modal: "#F8F8F8",
-            input:"#fff",
+            input:"#835AFD",
         },
         textColor: {
-            primary: "#29292E",
-            details: "#737380",
+            primary: "#e8e8e8",
+            details: "#ffffff",
             input:"#835AFD",
         },
         black: "#29292E",
