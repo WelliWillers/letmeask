@@ -52,6 +52,12 @@ export function Home() {
 
       history.push(`rooms/${roomCode}`);
     }
+
+    function handleAllRooms(event:FormEvent ) {
+      event.preventDefault();
+
+      history.push(`rooms-open/`);
+    }
   
     return (
       <Styled.Container>
@@ -81,6 +87,9 @@ export function Home() {
               />
               <Button btnType="fill" onClick={handleJoinRomm} type="submit">
                 Entrar na sala
+              </Button>
+              <Button btnType="fill" onClick={handleAllRooms} type="submit">
+                Ver todas salas abertas
               </Button>
             </form>
           </Styled.Content>

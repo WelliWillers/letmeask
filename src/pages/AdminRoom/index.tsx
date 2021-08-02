@@ -46,7 +46,7 @@ export function AdminRoom(){
         }   
     }
 
-    async function handleQuestionAsAnswered(questionId: string){
+    async function handleAnsweredQuestion(questionId: string){
         await database.ref(`rooms/${roomId}/questions/${questionId}`).update({
             isAnswered: true,
         });
@@ -66,7 +66,7 @@ export function AdminRoom(){
                     <img src={logoImg} alt="Letmeask" />
 
                     <div>
-                        <RoomCode code={'Copiar código'} />
+                        <RoomCode code={roomId} />
                         <div>
                             <Button btnType="outline" onClick={handleEndRoom}>
                                 Encerrar Sala
@@ -101,7 +101,7 @@ export function AdminRoom(){
                                                 <>
                                                     <button
                                                         type="button"
-                                                        onClick={() => handleQuestionAsAnswered(question.id)}
+                                                        onClick={() => handleAnsweredQuestion(question.id)}
                                                     >
                                                         <img src={checkImg} alt="Marcar como respondida esta Pergunta" />
                                                     </button>

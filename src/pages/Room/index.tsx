@@ -1,12 +1,9 @@
-import { FormEvent, useState, useContext } from 'react';
+import { FormEvent, useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { useRoom } from '../../hooks/useRomm';
 import { database } from '../../services/firebase';
 import {useHistory, useParams} from 'react-router-dom';
 import toast from 'react-hot-toast';
-
-//compõe a estilização do site
-import { ThemeContext } from 'styled-components';
 
 //componentes 
 import { Button } from '../../components/Button';
@@ -31,9 +28,6 @@ export function Room(){
     const params = useParams<RoomParams>();
     const roomId = params.id;
     const {questions, title, adminId} = useRoom(roomId);
-
-    //pega cores do themes
-    const { colors } = useContext(ThemeContext);
 
     async function handleSendQuestion(event: FormEvent){
         event.preventDefault();

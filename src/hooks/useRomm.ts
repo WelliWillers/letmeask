@@ -47,6 +47,7 @@ export function useRoom(roomId: string) {
         })
 
         roomRef.on('value', room => {
+
             const databaseRoom = room.val();
 
             if(!databaseRoom?.title) return history.push('/notfound');
