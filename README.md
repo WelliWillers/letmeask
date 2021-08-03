@@ -1,7 +1,5 @@
 <h1 align="center">
   <img alt="letmeaskbanner" title="#letmeaskbanner" src="./assets/banner.png" />
-  <img alt="letmeaskbanner" title="#letmeaskbanner" src="./assets/banneraa.png" />
-  <img alt="letmeaskbanner" title="#letmeaskbanner" src="./assets/bannerbb.png" />
 </h1>
 
 <div align="center"> 
@@ -18,10 +16,6 @@
     🚧  React Select 🚀 Em construção...  🚧
   </h4>
 </div>
-
-
-[![LetmeAsk Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=WelliWillers&layout=compact)](https://github.com/WelliWillers/letmeask)
-
 
 
 ## :purple_circle: Tabela de conteúdos
