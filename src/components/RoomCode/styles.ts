@@ -5,14 +5,15 @@ export const Button = styled.div`
     border-radius: 8px;
     overflow: hidden;
     
-    background: #FFF;
-    border: 1px solid #835afd;
+    background: ${props => props.theme.colors.bg.body};
+    color: ${props => props.theme.colors.textColor.input};
+    border: 1px solid ${props => props.theme.colors.purple.light};
     cursor: pointer;
     
     display: flex;
   
     div {
-      background: #835afd;
+      background: ${props => props.theme.colors.purple.light};
       padding: 0 12px;
       height: 100%;
       display: flex;
@@ -34,7 +35,7 @@ export const Button = styled.div`
 
     @media(max-width: 992px) {
       span {
-        width: 144px;
+        width: 100%;
       }
     }
 `;

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    background: #fefefe;
+    background: ${props => props.theme.colors.bg.modal};
+    color: ${props => props.theme.colors.textColor.details};
     border-radius: 8px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
     padding: 24px;
@@ -11,20 +12,21 @@ export const Container = styled.div`
     }
 
     &.highlighted {
-        background: #F4F0FF;
+        background: ${props => props.theme.colors.white.medium};
         border: 1px solid #835AFD;
         
         footer .user-info span {
-            color: #29292E;
+            color: ${props => props.theme.colors.textColor.details};
         }
     }
-      
+    
     &.answered {
-        background: #DBDCDD;
+        color: ${props => props.theme.colors.textColor.input};
+        background: ${props => props.theme.colors.gray.dark};
     }
 
     p {
-        color: #29292e;
+        color: ${props => props.theme.colors.gray.light};
     } 
 `;
 
@@ -41,7 +43,7 @@ export const Footer = styled.div`
         cursor: pointer;
         
         &.like-button{
-            color: #737380;
+            color: ${props => props.theme.colors.textColor.primary};
             display: flex;
             align-items: flex-end;
             gap: 8px;

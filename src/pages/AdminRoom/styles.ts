@@ -35,6 +35,9 @@ export const Content = styled.div`
     }
 
     @media (max-width: 992px){
+        flex-direction: column;
+        gap: 10px;
+        
         > img {
             max-height: 75px;
         }
@@ -47,8 +50,10 @@ export const Content = styled.div`
             }
 
             > div {
-                display: flex;
+                width: 100%;
+                display: flex !important;
                 gap: 16px;
+                justify-content: space-between;
             }
         }
     }
@@ -71,12 +76,12 @@ export const Title = styled.div`
     h1 {
         font-family: 'Poppins', sans-serif;
         font-size: 24px;
-        color: #29292e;
+        color: ${props => props.theme.colors.textColor.primary};
     }
 
     span {
         margin-left: 16px;
-        background: #e559f9;
+        background: ${props => props.theme.colors.pink.light};
         border-radius: 9999px;
         padding: 8px 16px;
         color: #FFF;

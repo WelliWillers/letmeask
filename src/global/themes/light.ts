@@ -4,10 +4,10 @@ export default {
         bg: {
             body: "#F8F8F8",
             modal: "#F8F8F8",
-            input:"#835AFD",
+            input:"#fefefe",
         },
         textColor: {
-            primary: "#e8e8e8",
+            primary: "#000",
             details: "#ffffff",
             input:"#835AFD",
         },
@@ -22,8 +22,8 @@ export default {
         danger: "#E73F5D",
         gray: {
             dark: "#737380",
-            medium: "#A8A8B3",
-            light: "#DBDCDD",
+            medium: "#DBDCDD",
+            light: "#000",
         },
         white: {
             medium: "#F8F8F8",

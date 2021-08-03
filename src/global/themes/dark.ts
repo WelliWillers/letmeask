@@ -8,7 +8,7 @@ export default {
         },
         textColor: {
             primary: "#ffffff",
-            details: "#737380",
+            details: "#292929",
             input:"#835AFD",
         },
         black: "#29292E",
@@ -23,7 +23,7 @@ export default {
         gray: {
             dark: "#737380",
             medium: "#A8A8B3",
-            light: "#DBDCDD",
+            light: "#fff",
         },
         white: {
             medium: "#000",

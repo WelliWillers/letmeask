@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const NoQuestions = styled.div`
     flex: 1;
     width: 100%;
-    margin-top: 150px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;

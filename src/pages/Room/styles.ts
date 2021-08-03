@@ -30,9 +30,14 @@ export const Content = styled.div`
     }
     
     @media (max-width: 992px){
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+
         > img {
             max-height: 75px;
         }
+
         > div {
             flex-direction: column;
             align-items: flex-end;
@@ -42,6 +47,7 @@ export const Content = styled.div`
             }
 
             > div {
+                width: 100%;
                 display: flex !important;
                 gap: 16px;
                 justify-content: space-between;
@@ -60,7 +66,8 @@ export const Main = styled.div`
             border: 0;
             padding: 16px;
             border-radius: 8px;
-            background: #fefefe;
+            background: ${props => props.theme.colors.bg.input};
+            color: ${props => props.theme.colors.gray.light};
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
             resize: vertical;
             min-height: 130px;
@@ -80,7 +87,7 @@ export const Title = styled.div`
     h1 {
         font-family: 'Poppins', sans-serif;
         font-size: 24px;
-        color: #29292e;
+        color: ${props => props.theme.colors.textColor.primary};
     }
 
     span {

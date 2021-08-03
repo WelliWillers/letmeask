@@ -39,6 +39,10 @@ export function AdminRoom(){
 
         history.push('/');
     }
+
+    function handleRoomQuestion(){
+        history.push(`/rooms/${roomId}`);
+    }
     
     async function handleDeleteQuestion(questionId: string){
         if(window.confirm('Tem certeza que deseja excluir esta pergunta?')) {
@@ -69,7 +73,10 @@ export function AdminRoom(){
                         <RoomCode code={roomId} />
                         <div>
                             <Button btnType="outline" onClick={handleEndRoom}>
-                                Encerrar Sala
+                                Sair
+                            </Button>
+                            <Button btnType="fill" onClick={handleRoomQuestion}>
+                                Sala
                             </Button>
                             <ToggleTheme />
                         </div>
