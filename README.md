@@ -108,4 +108,4 @@ $ yarn start
 <div id="licenca"> 
   <h1>:purple_circle: Licença</h1>
 </div>
-Veja a [LICENSE](https://github.com/WelliWillers/letmeask/blob/main/LICENSE)
+Veja a<a href="https://github.com/WelliWillers/letmeask/blob/main/LICENSE"> LICENSE</a>
