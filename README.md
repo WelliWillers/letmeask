@@ -20,6 +20,7 @@
     <a href="#sobre">Sobre</a> •
     <a href="#tabela-de-conteudo"> Tabela de conteúdo</a> • 
     <a href="#tecnologias-usadas"> Tecnologias usadas</a> • 
+    <a href="#features"> Features</a> • 
     <a href="#requisitos"> Requisitos</a> • 
     <a href="#instalacao"> Instalação</a> • 
     <a href="#screenshots"> Prints de tela</a> • 
@@ -37,7 +38,7 @@
 - [react-router-dom](https://reactrouter.com/web/guides/quick-start)
 
 
-<div id="tecnologias-usadas"> 
+<div id="features"> 
   <h1>:purple_circle: Features</h1>
 </div>
 
