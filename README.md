@@ -104,3 +104,7 @@ $ yarn start
 
 [![Linkedin Badge](https://img.shields.io/badge/-@Wellington-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/wellington-willers-24302b199/)](https://www.linkedin.com/in/wellington-willers-24302b199/) 
 [![Gmail Badge](https://img.shields.io/badge/-tgmarinho@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:wellington.willer@gmail.com)](mailto:wellington.willer@gmail.com)
+
+<div id="licenca"> 
+  <h1>:purple_circle: Licença</h1>
+</div>
