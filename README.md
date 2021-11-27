@@ -7,9 +7,7 @@
     O projeto consiste em uma plataforma, onde o usuário acessa a partir de sua conta do Google, para fazer perguntas ao usuário responsável pela sala.
   </p>
   
-  <h4> 
-    🚧  React Select 🚀 Em construção...  🚧
-  </h4>
+  <img src="https://welliwillers.github.io/portfolio/img/capaletmeask.png" alt="Imagem capa letmeask">
 </div>
 
 
@@ -26,7 +24,8 @@
     <a href="#screenshots"> Prints de tela</a> • 
    <a href="#autor"> Autor</a>
   </p>
-</div>
+</div>![bannerbb](https://user-images.githubusercontent.com/40187751/143689721-48ff7c8d-128f-4f54-bd89-69bf0a5b9715.png)
+
 
 <div id="tecnologias-usadas"> 
   <h1> :purple_circle: Tecnologias usadas</h1>
